@@ -1,4 +1,5 @@
-#include <unistd.h>
+
+void ft_putchar(char c);
 
 void rush(int X, int Y){
 
@@ -9,57 +10,34 @@ void rush(int X, int Y){
 
     for (int i = 1 ; i <= X ; i++ ){
         
-        if (i == 1 || i == X) { 
+        //NADA POR AQUI
+         
+        for (int j = 1; j <= Y; j++){
 
-        write(1 , &car1 , 1);
+            if ((i == 1 && j == 1) || (i == 1 && j == Y) ||
+            (i == X && j == 1) || (i == X && j == Y)) {
 
-        } else {
+                ft_putchar(car1);
 
-            write(1, &car3, 1);
-        }
-        
-        for (int j = 2; j <= Y; j++){
+            } else if (i == 1 || i == X) {
 
-            if (j == Y){
-                
-                if (i > 1 && i < Y){
-                    
-                    write(1, &car3, 1);
-                    
-                } else {
+                ft_putchar(car2);
 
-                write(1, &car1, 1);
+            } else if (j == 1 || j == Y) {
 
-                }
+                ft_putchar(car3);
 
             } else {
 
-            
-            if ((j >= 2 && j < Y) && (i > 1 && i < X ) ) {
+                ft_putchar(espai);
 
-                write(1, &espai, 1);
-
-            } else {
-
-                write(1, &car2 , 1);
-
-                }
             }
 
         }
         
-        write(1 , "\n", 1); //SALTO DE LINEA 
+        ft_putchar('\n'); //SALTO DE LINEA PARA CREAR FILAS
         
     }
 
 }
 
-
-
-
-int main(){
-    rush(150, 20);
-    return 0;
-
-}
-#include <unistd.h>
